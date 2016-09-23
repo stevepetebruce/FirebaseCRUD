@@ -1,0 +1,37 @@
+<div class="row" ng-controller="authCtrl">
+
+    <div class="col-md-12">
+        <form class="form-signin" role="form">
+            <div class="form-group" ng-hide="firebaseUser">
+                <input type="email" name="email" ng-model="email" class="form-control" placeholder="Email address" required="" autofocus="">
+            </div>
+            <div class="form-group" ng-hide="firebaseUser">
+                <input type="password" name="password" ng-model="password" class="form-control" placeholder="Password" required="">
+            </div>
+            <!--<div class="form-group">
+                <label class="checkbox"><a href="#/registration">Sign Up</a></label>
+            </div>-->
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="logIn()" ng-hide="firebaseUser">Login</button>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="loginFacebook()" ng-hide="firebaseUser">Login with Facebook</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="loginTwitter()" ng-hide="firebaseUser">Login with Twitter</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group" ng-show="firebaseUser">
+                <p>Hello, {{ firebaseUser.email }} - <a ng-href="#!/magazines" type="button" class="btn btn-default btn-sm">Go to magazines</a></p>
+                <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="logOut()">Logout</button>
+            </div>
+        </form>
+    </div>
+
+</div>

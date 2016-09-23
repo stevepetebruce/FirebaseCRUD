@@ -1,0 +1,119 @@
+<div class="row" ng-controller="magazinesCtrl">
+    <div class="col-md-6" data-spy="affix" data-offset-top="150" data-offset-bottom="200" ng-show="addFormShow">
+        <h3>Add</h3>
+        <form ng-submit="addMagazine()">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" ng-model="item.product_title" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <label>Digital ID</label>
+                <input type="text" class="form-control" ng-model="item.Digital_id" placeholder="Digital ID">
+            </div>
+            <div class="form-group">
+                <label>Print ID</label>
+                <input type="text" class="form-control" ng-model="item.Print_id" placeholder="Print ID">
+            </div>
+            <div class="form-group">
+                <label>Product Description</label>
+                <textarea rows="5" class="form-control" ng-model="item.product_desc" placeholder="Description"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Issue Number</label>
+                <input type="text" class="form-control" ng-model="item.issue_no" placeholder="Issue">
+            </div>
+            <div class="form-group">
+                <label>Magazine Code</label>
+                <input type="text" class="form-control" ng-model="item.magcode" placeholder="TBT etc.">
+            </div>
+            <div class="form-group">
+                <label>Product Image</label>
+                <input type="text" class="form-control" ng-model="item.product_image" placeholder="i-mag image path">
+            </div>
+            <div class="form-group">
+                <label>Show me?</label>
+                <input type="checkbox" class="form-check-input" ng-model="item.Showme" ng-true-value="1" ng-false-value="0">
+            </div>
+            <div class="form-group">
+                <label>Magazine?</label>
+                <input type="checkbox" class="form-check-input" ng-model="item.Magazine" ng-true-value="1" ng-false-value="0">
+            </div>
+            <div class="form-group">
+                <label>Available?</label>
+                <input type="checkbox" class="form-check-input" ng-model="item.Available" ng-true-value="1" ng-false-value="0">
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+    <div class="col-md-6" data-spy="affix" data-offset-top="150" data-offset-bottom="200" ng-show="editFormShow">
+        <h3>Edit</h3>
+        <form ng-submit="editMagazine()">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" ng-model="product_title" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <label>Digital ID</label>
+                <input type="text" class="form-control" ng-model="Digital_id" placeholder="Digital ID">
+            </div>
+            <div class="form-group">
+                <label>Print ID</label>
+                <input type="text" class="form-control" ng-model="Print_id" placeholder="Print ID">
+            </div>
+            <div class="form-group">
+                <label>Product Description</label>
+                <textarea rows="5" class="form-control" ng-model="product_desc" placeholder="Description"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Issue Number</label>
+                <input type="text" class="form-control" ng-model="issue_no" placeholder="Issue">
+            </div>
+            <div class="form-group">
+                <label>Magazine Code</label>
+                <input type="text" class="form-control" ng-model="magcode" placeholder="TBT etc.">
+            </div>
+            <div class="form-group">
+                <label>Product Image</label>
+                <input type="text" class="form-control" ng-model="product_image" placeholder="imag image path">
+            </div>
+            <div class="form-group">
+                <label>Show me?</label>
+                <input type="checkbox" class="form-check-input" ng-model="Showme"  ng-true-value="1" ng-false-value="0">
+            </div>
+            <div class="form-group">
+                <label>Magazine?</label>
+                <input type="checkbox" class="form-check-input" ng-model="Magazine"  ng-true-value="1" ng-false-value="0">
+            </div>
+            <div class="form-group">
+                <label>Available?</label>
+                <input type="checkbox" class="form-check-input" ng-model="Available"  ng-true-value="1" ng-false-value="0">
+            </div>
+
+
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h3>Magazines</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Mag Code</th>
+                    <th>Title</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in items | orderBy : '-id'">
+                    <td><img ng-src="{{ item.product_image }}" style="width: 40px"></td>
+                    <td>{{item.magcode}}</td>
+                    <td>{{item.product_title}}</td>
+                    <td><a class="btn btn-danger btn-xs" ng-click="removeMagazine(item)">Delete</a> <a class="btn btn-primary btn-xs" ng-click="showEditForm(item)">Edit</a></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
